@@ -1,0 +1,190 @@
+#+title: Lineær regression
+#+subtitle: Matematik grundforløb
+#+author: Vibenshus Gymnasium
+#+date: 
+# Themes: beige|black|blood|league|moon|night|serif|simple|sky|solarized|white
+#+reveal_theme: sky
+#+reveal_title_slide: <h2>%t</h2><h3>%s</h3><h4>%a</h4><h4>%d</h4>
+#+reveal_title_slide_background:
+#+reveal_default_slide_background:
+#+reveal_extra_options: slideNumber:"c/t",progress:true,transition:"slide",navigationMode:"default",history:false,hash:true
+#+options: toc:nil num:nil tags:nil timestamp:nil ^:{}
+
+
+
+* Punkter og rette linjer
+
+** Hvad ved i forvejen?
+
+#+attr_reveal: :frag (appear)
+- Hvor mange punkter skal man kende, for at kunne tegne en ret linje?
+- 2
+
+#+attr_reveal: :frag (appear)
+#+attr_html: :width 50%
+[[file:img/csm_haeldningen_a_ca5c3a73d5_2019-09-05_09-23-37.png]]
+
+** Hvad hvis der er flere end to punkter?
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 09:29:54
+#+attr_html: :width 50%
+[[file:img/screenshot_2019-09-05_09-29-54.png]]
+
+** Tegn i hånden
+   
+Antal oddere i Danmark
+
+| Årstal, x        | 1984 (0) | 1991 (7) | 1996 (12) | 2004 (20) | 2012 (28) |
+|------------------+----------+----------+-----------+-----------+-----------|
+| Observationer, y |       67 |       95 |       132 |       251 |       293 |
+
+#+attr_reveal: :frag (appear)
+- Indtegn datasættet på tegnet papir i hånden.
+- Indtegn selv den /bedst mulige/ rette linje.
+
+#+reveal: split
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 09:49:25
+#+attr_html: :width 50%
+[[file:img/screenshot_2019-09-05_09-49-25.png]]
+
+** Konklusion
+
+#+attr_reveal: :frag (appear)
+- Grafen går måske ikke igennem nogen af punkterne.
+- Grafen skal være så tæt på alle punkterne som muligt.
+  
+** Interaktiv øvelse
+[[https://matbhtx.systime.dk/?id=c12359]]
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 09:54:19
+#+attr_html: :width 50%
+[[file:img/screenshot_2019-09-05_09-54-19.png]]
+
+* Mindste kvadraters metode
+
+** Den bedst mulige rette linje
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 10:23:36
+#+attr_html: :width 50%
+[[file:img/screenshot_2019-09-05_10-23-36.png]]
+
+#+reveal: split
+   
+#+reveal_html: <div class="column" style="float:left; width: 35%">
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 10:23:36
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_10-23-36.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div class="column" style="float:right; width: 65%">
+#+attr_reveal: :frag (appear)
+- Undersøger den lodrette afstand mellem de kendte punkter og en given ret linje.
+- /Residualer/
+- /Kvadratiske afvigelser/
+- Summen af alle de kvadratiske afvigelser, skal være så lille som muligt. $$D=d_1^2 + d_2^2 + d_3^2 + d_4^2 + d_5^2$$
+#+reveal_html: </div>
+
+** Prøv det selv
+   
+Mindste_kvadraters_metode.ggb på lectio
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 10:39:25
+#+attr_html: :width 36%
+[[file:img/screenshot_2019-09-05_10-39-25.png]]
+
+- Flyt på $P_1$ og $P_2$.
+- Få $DD$ til at blive så lille som muligt.
+  
+** Få Geogebra til at gøre det
+
+Indtast følgende i /input/-feltet:
+
+- =liste1={A,B,C,D,E}= (Opret en liste med punkter)
+- =FitLinje(liste1)= (Finder den bedste rette linje)
+
+* Hvor godt passer det så?
+
+** Korrelationskoeffiecenten, $r$
+#+reveal_html: <div style="font-size: 60%;">
+   
+#+DOWNLOADED: https://matbhtx.systime.dk/fileadmin/_processed_/0/d/csm_123_rverdi_9467cbf6c5.png @ 2019-09-05 10:53:12
+#+attr_html: :width 70%
+[[file:img/csm_123_rverdi_9467cbf6c5_2019-09-05_10-53-12.png]]
+
+#+DOWNLOADED: https://matbhtx.systime.dk/fileadmin/_processed_/6/c/csm_124_rverdi_spejl_b07c3ce819.png @ 2019-09-05 10:53:33
+#+attr_html: :width 70%
+[[file:img/csm_124_rverdi_spejl_b07c3ce819_2019-09-05_10-53-33.png]]
+
+- Kommando i geogebra: =PMCC(<liste med punkter>)= (say what!?)
+  
+** Forklaringsgraden, $r^2$
+
+- $0 \leq r^2 \leq 1$
+- $r^2 = 1$ - Perfekt /fit/.
+- $r^2 = 0$ - Det dårligste fit overhovedet.
+- $r^2 > 0.99$ - Godt lineært fit.
+- $0.95 < r^2< 0.99$ - Rimeligt lineært fit.
+- Kommando i geogebra: 
+
+  =Rkvadreret(<liste med punkter>, <funktion>)=
+
+** Opgave
+   
+#+reveal_html: <div class="column" style="float:left; width: 50%">
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:08:46
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_11-08-46.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div class="column" style="float:right; width: 50%">
+- Indsæt punkter i geogebra (=(2,3.3)= i inputfeltet etc)
+- Opret liste med punkter (=liste1={A,B}= og alle de andre punkter også)
+- Fit en ret linje (=fitlinje(liste1)=)
+- Find forklaringsgraden (=Rkvadreret(liste1,f)=)
+#+reveal_html: </div>
+
+** Flere opgaver
+[[https://matbhtx.systime.dk/index.php?id=1295]]
+
+#+reveal_html: <div class="column" style="float:left; width: 50%">
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:18:40
+#+attr_html: :width 80%
+[[file:img/screenshot_2019-09-05_11-18-40.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div class="column" style="float:right; width: 50%">
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:18:52
+#+attr_html: :width 80%
+[[file:img/screenshot_2019-09-05_11-18-52.png]]
+#+reveal_html: </div>
+
+#+reveal: split
+#+reveal_html: <div class="column" style="float:left; width: 50%">
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:19:49
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_11-19-49.png]]
+
+#+reveal_html: </div>
+
+#+reveal_html: <div class="column" style="float:right; width: 50%">
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:20:04
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_11-20-04.png]]
+#+reveal_html: </div>
+
+* Backup slides
+
+** Hvis man skal regne det hele i hånden
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:35:40
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_11-35-40.png]]
+
+#+reveal: split
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 11:37:21
+#+attr_html: :width 100%
+[[file:img/screenshot_2019-09-05_11-37-21.png]]
