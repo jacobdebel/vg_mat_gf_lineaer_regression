@@ -39,7 +39,7 @@ Antal oddere i Danmark
 | Observationer, y |       67 |       95 |       132 |       251 |       293 |
 
 #+attr_reveal: :frag (appear)
-- Indtegn datasættet på tegnet papir i hånden.
+- Indtegn datasættet på ternet papir i hånden.
 - Indtegn selv den /bedst mulige/ rette linje.
 
 #+reveal: split
