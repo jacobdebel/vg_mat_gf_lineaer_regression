@@ -87,7 +87,7 @@ Antal oddere i Danmark
 
 ** Prøv det selv
    
-Mindste_kvadraters_metode.ggb på lectio
+Mindste_kvadraters_metode.ggb på skolens IT-platform
 
 #+DOWNLOADED: /tmp/screenshot.png @ 2019-09-05 10:39:25
 #+attr_html: :width 36%
